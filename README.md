@@ -2,21 +2,11 @@
 # 🚇 KMRL DMS — Smart Engine of Directives for Kochi Metro Rail Limited
 
 <div align="center">
-  <a href="https://youtu.be/0fYi8SGA20k?feature=shared" target="_blank">
-    <!-- <img src="https://github.com/adrianhajdin/project_3D_developer_portfolio/assets/151519281/4722160a-8e61-403f-a905-728feae1f7e6" alt="Project Banner" width="640"/>
-    -->
     <img src="https://res.cloudinary.com/dvdozdbsh/image/upload/v1758653644/Screenshot_From_2025-09-24_00-01-15_w3den6.png" alt="KOCHI" width="300">
     
   </a>
-
-  <p>
-    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
-    <img src="https://img.shields.io/badge/-FastAPI-black?style=for-the-badge&logoColor=white&logo=fastapi&color=009688" alt="FastAPI" />
-    <img src="https://img.shields.io/badge/-PostgreSQL-black?style=for-the-badge&logoColor=white&logo=postgresql&color=336791" alt="PostgreSQL" />
-  </p>
-
   <h3>A Smart Engine of Directives for Kochi Metro Rail Limited (KMRL)</h3>
-  <p><b>Team Code Terrors</b> — automated, prioritized, bilingual directive delivery to combat document overload.</p>
+  
 </div>
 
 ---
