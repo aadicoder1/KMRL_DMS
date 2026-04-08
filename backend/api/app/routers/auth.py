@@ -15,22 +15,32 @@ async def register(request: RegisterRequest):
 
     hashed_password = hash_password(request.password)
 
-    dept_resp = (supabase.table("departments").select("dept_id").ilike("name", request.department.strip()).execute())
+    clean_name = request.department.strip().replace("  ", " ")
+
+    dept_resp = (
+    supabase.table("departments")
+    .select("dept_id")
+    .filter("name", "eq", clean_name)
+    .execute()
+    )   
     
     print("Incoming department:", request.department)
     print("DB response:", dept_resp.data)
+
+    print(repr(request.department))  # Shows hidden chars
+    print(repr(clean_name))
 
     if not dept_resp.data:
         raise HTTPException(status_code=400, detail="Department not found")
     dept_id = dept_resp.data[0]["dept_id"]
 
     response_1 = supabase.table("users").insert({
-        "email": request.email,
-        "password": hashed_password,
-        "role": request.role,
-        "name": request.name,
-        "department": dept_id,
-        "phone": request.phone
+    "email": request.email,
+    "password": hashed_password,
+    "roles": [request.role],   # wraps the single role string into an array
+    "name": request.name,
+    "dept_id": dept_id,
+    "phone": request.phone
     }).execute()
     return {"success": True, "message": "User registered successfully","user_id" : response_1.data[0]["id"]}
 
