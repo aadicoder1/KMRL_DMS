@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class LoginRequest(BaseModel):
-    user_id: str
+    emai: str
     password: str
 
 class URLRequest(BaseModel):

@@ -2,7 +2,7 @@ import api from "../api/api";
 
 // Auth
 export const login = async (user_id, password) => {
-  const response = await api.post("/auth/login", { user_id, password });
+  const response = await api.post("/auth/login", { email, password });
   return response.data;
 };
 
@@ -12,9 +12,13 @@ export const register = async (userData) => {
 };
 
 export const createDepartment = async (name) => {
-  const response = await api.post("/auth/department", { name });
+  const response = await api.post(`/auth/department?name=${name}`);
   return response.data;
 };
+/*export const createDepartment = async (name) => {
+  const response = await api.post("/auth/department", { name });
+  return response.data;
+};*/
 
 // User Profile
 export const getProfile = async (user_id) => {
