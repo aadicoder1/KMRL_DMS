@@ -27,7 +27,7 @@
 
 ## 🤖 Introduction
 
-KMRLSIH converts fragmented and multilingual documents into **searchable, prioritized directives**.
+KMRL_DMS converts fragmented and multilingual documents into **searchable, prioritized directives**.
 
 - ➜ **Ingest** → WhatsApp, Email, Maximo, SharePoint, manual uploads.  
 - ➜ **Process** → Five-stage AI pipeline: OCR → NLP → Semantic chunking → Entity extraction & summarization → Indexing.  
@@ -64,8 +64,8 @@ KMRLSIH converts fragmented and multilingual documents into **searchable, priori
 
 ### 1) Clone (copy-paste)
 ```bash
-git clone https://github.com/BhishanSharma/KMRLSIH
-cd KMRLSIH
+git clone https://github.com/aadicoder1/KMRL_DMS
+cd KMRL_DMS
 ```
 
 ### 2) Frontend (local dev) — copy-paste
@@ -325,7 +325,7 @@ curl "http://localhost:8000/profile/history?user_id=5aa31fbb-4472-4dbf-8974-9a2c
 
 ## 📂 Project Structure (high level)
 ```
-KMRLSIH/
+KMRL_DMS/
 ├─ frontend/
 │  ├─ src/
 │  │  ├─ api/

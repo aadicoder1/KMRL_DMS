@@ -24,18 +24,18 @@ const AboutPage = () => {
 
   const teamMembers = [
     {
-      name: "Himanshu Saxena",
-      role: "Frontend Team Lead & Solutions Architect",
-      team: "Frontend",
+      name: "Aaditya Kumar Sahu",
+      role: "Backend Developer & Database Architect",
+      team: "Backend",
       image:
-        "https://media.licdn.com/dms/image/v2/D4D03AQHnN4nwaclN8g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701354014775?e=1761782400&v=beta&t=2ma8veJ28ZaQM5JWMsO30cFzJ3S3Azj-89HQwGHD2A8",
+        "https://instagram.fdel11-3.fna.fbcdn.net/v/t51.82787-19/587281862_17926101060175343_3282379438184383616_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fdel11-3.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2gFaALmuKEh9-3eFwEHPJJOUl1--cBFXHmx3Q_mZTdT2MniDISnWETXcxilZDLQiuxWSYbXIeaceQS7_m5Xu-lZ5&_nc_ohc=bTvgeocLvFkQ7kNvwE85JTO&_nc_gid=WEp8fQO6W42ppOnU_pWDfg&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_Af2HDlx9h8HQWkOQJVIVFh8eM9gf0SgovUmx-tF-hc6uCw&oe=69DD8E2F&_nc_sid=7d3ac5tps://media.licdn.com/dms/image/v2/D4E03AQHpgOh4Z74zEA/profile-displayphoto-crop_800_800/B4EZrMdB.AIwAI-/0/1764366755220?e=1777507200&v=beta&t=H-Vixiv88AuGvLdRyO8WUtyRHr2nMcjS6BmbgPqtQuwhttps://media.licdn.com/dms/image/v2/D4D03AQHnN4nwaclN8g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701354014775?e=1761782400&v=beta&t=2ma8veJ28ZaQM5JWMsO30cFzJ3S3Azj-89HQwGHD2A8",
       description:
-        "Leading the frontend architecture with expertise in modern web technologies and API integration. Passionate about creating seamless user experiences and scalable solutions.",
+        "Passionate about problem-solving and building efficient software solutions and I'm eager to expand my skills into full-stack development, cloud technologies, and DevOps. Im also actively sharpening my problem-solving and algorithm skills through Java and DSA practice.",
       skills: [
         "React.js",
-        "TypeScript",
+        "Python",
         "API Integration",
-        "System Architecture",
+        "FastAPI",
         "Team Leadership",
       ],
       icon: Layers,
@@ -43,13 +43,13 @@ const AboutPage = () => {
       bgColor: "bg-blue-50",
       textColor: "text-blue-600",
       achievements: [
-        "Led 15+ successful projects",
-        "Mentored 8 developers",
-        "Architected microservices",
+        "Led 3 successful projects",
+        "Solved over 100+ DSA question on various platforms",
+        "Participated in many contests and hackathons ",
       ],
     },
     {
-      name: "Shanvi",
+      name: "Rudranshi Mittal",
       role: "UI/UX Design Lead & Product Designer",
       team: "Frontend",
       image:
@@ -68,118 +68,17 @@ const AboutPage = () => {
       bgColor: "bg-pink-50",
       textColor: "text-pink-600",
       achievements: [
-        "Designed 20+ user interfaces",
-        "98% user satisfaction",
-        "Created unified design system",
+        "1",
+        "2",
+        "3",
       ],
     },
-    {
-      name: "Shwe Win Aung",
-      role: "Frontend Developer & Animation Specialist",
-      team: "Frontend",
-      image:
-        "https://media.licdn.com/dms/image/v2/D5603AQFlTg4DVCWcVQ/profile-displayphoto-scale_400_400/B56ZlMGmzSHcAg-/0/1757918425224?e=1761782400&v=beta&t=mEJmJb2bOelCPwgPKQrnaUC5xrki_kFWfviK_HE8BEI",
-      description:
-        "Bringing designs to life with smooth animations and interactive experiences. Specializes in modern frontend frameworks and creative web technologies.",
-      skills: [
-        "React.js",
-        "TailwindCSS",
-        "Framer Motion",
-        "GSAP",
-        "Clean Code",
-        "API",
-        "MULTILANGUAGE",
-      ],
-      icon: Zap,
-      color: "from-purple-500 to-indigo-500",
-      bgColor: "bg-purple-50",
-      textColor: "text-purple-600",
-      achievements: [
-        "Created 50+ animations",
-        "Improved UX by 40%",
-        "Built interactive demos",
-      ],
-    },
-    {
-      name: "Bhishan Sharma",
-      role: "AI/ML Engineer & Workflow Architect",
-      team: "Backend",
-      image: "https://avatars.githubusercontent.com/u/186663682?v=4",
-      description:
-        "Designing and implementing intelligent systems with advanced AI workflows. Expert in machine learning pipelines and automation technologies.",
-      skills: [
-        "Python",
-        "Machine Learning",
-        "AI Workflows",
-        "MLOps",
-        "Data Science",
-      ],
-      icon: Cpu,
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50",
-      textColor: "text-green-600",
-      achievements: [
-        "Built 12 ML models",
-        "Automated 80% workflows",
-        "Published 3 research papers",
-      ],
-    },
-    {
-      name: "Akarsh Mishra",
-      role: "Data Engineer & Integration Specialist",
-      team: "Backend",
-      image: "https://avatars.githubusercontent.com/u/155228025?v=4",
-      description:
-        "Managing complex data pipelines and integration workflows using n8n and various data sources. Expert in ETL processes and data transformation.",
-      skills: [
-        "Data Engineering",
-        "n8n Automation",
-        "ETL Pipelines",
-        "API Integration",
-        "Data Analytics",
-      ],
-      icon: Database,
-      color: "from-orange-500 to-amber-500",
-      bgColor: "bg-orange-50",
-      textColor: "text-orange-600",
-      achievements: [
-        "Processed 10TB+ data",
-        "Integrated 25+ APIs",
-        "Reduced processing time by 60%",
-      ],
-    },
-    {
-      name: "Himanshu Jha",
-      role: "Backend Developer & Database Architect",
-      team: "Backend",
-      image:
-        "https://media.licdn.com/dms/image/v2/D5635AQGDA7SVVyrZpA/profile-framedphoto-shrink_400_400/B56ZeR1T3VHEAk-/0/1750498361118?e=1759442400&v=beta&t=A5oJ1tSZZNyoUTay46vZ-TPFbKdWClHNwUvqmJYqAss",
-      description:
-        "Building robust backend systems with focus on database optimization and API development. Expert in scalable server architectures and data modeling.",
-      skills: [
-        "Node.js",
-        "Database Design",
-        "API Development",
-        "System Optimization",
-        "Cloud Services",
-      ],
-      icon: Code,
-      color: "from-teal-500 to-cyan-500",
-      bgColor: "bg-teal-50",
-      textColor: "text-teal-600",
-      achievements: [
-        "Optimized DB by 70%",
-        "Built 100+ APIs",
-        "Managed 5 production systems",
-      ],
-    },
+    
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "50+", icon: Award },
-    { label: "Lines of Code", value: "100K+", icon: Code },
-    { label: "Coffee Consumed", value: "2000+", icon: Coffee },
-    { label: "Happy Clients", value: "25+", icon: Heart },
+    { label: "Projects Completed", value: "3", icon: Award },
+    { label: "Lines of Code", value: "10K+", icon: Code },
   ];
 
   const values = [
@@ -192,11 +91,6 @@ const AboutPage = () => {
       title: "Collaboration",
       description: "Teamwork and diverse perspectives.",
       icon: Users,
-    },
-    {
-      title: "Quality",
-      description: "High standards in design and code.",
-      icon: Target,
     },
     {
       title: "Learning",
@@ -212,10 +106,7 @@ const AboutPage = () => {
         <h1 className="text-5xl md:text-6xl text-green-600 font-bold mb-6">
           Meet Our Team
         </h1>
-        <p className=" text-green-500 max-w-8xl mx-auto mb-12">
-          A passionate group of developers, designers, and engineers working
-          together to create innovative solutions.
-        </p>
+        
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -242,8 +133,8 @@ const AboutPage = () => {
             onClick={() => setActiveTab(tab)}
             className={`px-8 py-3 rounded-full font-medium transition ${
               activeTab === tab
-                ? "bg-green-700/90  text-green-200 shadow-lg"
-                : " text-green-500 hover:bg-green/50"
+                ? "bg-blue-700/90  text-cyan-200 shadow-lg"
+                : " text-cyan-500 hover:bg-blue/50"
             }`}
           >
             {tab === "team"
@@ -356,31 +247,7 @@ const AboutPage = () => {
         </section>
       )}
 
-      {/* Story Section */}
-      {activeTab === "story" && (
-        <section className="px-6 pb-20 max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-green-600">Our Story</h2>
-          <p className="mb-6 text-green-500">
-            From individual expertise to collective excellence.
-          </p>
-          <div className="backdrop-blur-sm bg-white/30 border border-white/20 rounded-3xl p-10 shadow-md">
-            <p className="text-green-500 mb-4">
-              Our team came together with a shared vision: to build innovative
-              digital solutions that make a real difference. Collaboration and
-              creativity drive everything we do.
-            </p>
-            <p className="text-green-500 mb-4">
-              With diverse backgrounds spanning frontend development, backend
-              architecture, AI/ML engineering, and design, we bring a unique
-              perspective to every project.
-            </p>
-            <blockquote className="text-green-500 italic border-l-4 border-green-200 pl-4 mt-4">
-              "Great things are done by a series of small things brought
-              together."
-            </blockquote>
-          </div>
-        </section>
-      )}
+      
     </div>
   );
 };

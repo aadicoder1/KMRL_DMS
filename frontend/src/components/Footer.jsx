@@ -10,7 +10,7 @@ export default function Footer() {
       "
     >
       <p className="text-sm text-green-500">
-        © {new Date().getFullYear()} KMRLSIH — Team Code Terrors
+        © {new Date().getFullYear()} KMRL_DMS
       </p>
     </footer>
   );

@@ -53,7 +53,7 @@ async def login(request: LoginRequest):
         response = (
             supabase.table("users")
             .select("*")
-            .eq("id", request.email)
+            .eq("email", request.email)
             .execute()
         )
 

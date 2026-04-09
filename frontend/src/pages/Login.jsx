@@ -9,7 +9,7 @@ import {login as loginUser} from "../api/services";
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [employeeId, setEmployeeId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // new state
   const [loading, setLoading] = useState(false);
@@ -23,10 +23,12 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const data = await loginUser(employeeId, password);
+      const data = await loginUser(email, password);
       login(data.user);
       navigate("/dashboard");
     } catch (err) {
+      console.log("Full error:", err);          
+      console.log("Response:", err.response); 
       setError(err.response?.data?.detail || "Login failed. Try again.");
     } finally {
       setLoading(false);
@@ -81,13 +83,13 @@ export default function Login() {
           <form onSubmit={handleLogin} className="space-y-6 w-full">
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Employee ID *
+                Email *
               </label>
               <input
-                type="text"
-                placeholder="Enter Employee ID"
-                value={employeeId}
-                onChange={(e) => setEmployeeId(e.target.value)}
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="mt-2 w-full px-5 py-4 border rounded-xl  focus:outline-none text-base bg-white/40"
               />
             </div>

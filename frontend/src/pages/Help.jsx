@@ -54,12 +54,12 @@ export default function Help() {
       {/* Header */}
       <header className="text-center mb-12">
         <img
-          src="help.png"
+          src="train.png"
           alt="Kochi Metro"
           className="mx-auto mb-4 w-full h-80 object-contain"
         />
         <h1 className="text-3xl font-heading text-green-500 mb-2">
-          KMRLSIH — Smart Engine of Directives
+          KMRL_DMS — Smart Engine of Directives
         </h1>
         <p className="text-neutral-600">
           A folder-structured guide for setup, usage & deployment.
@@ -70,7 +70,7 @@ export default function Help() {
       <div className="bg-white p-6 rounded-lg shadow-md border border-neutral-200">
         <Section id="intro" title="🤖 Introduction">
           <p>
-            KMRLSIH converts fragmented and multilingual documents into{" "}
+            KMRL_DMS converts fragmented and multilingual documents into{" "}
             <strong className="text-green-600">
               searchable, prioritized directives
             </strong>
@@ -112,8 +112,8 @@ export default function Help() {
           <div>
             <p className="font-semibold text-green-600">1) Clone</p>
             <pre className="bg-green-50 p-2 rounded border border-green-200 text-sm">
-              git clone https://github.com/BhishanSharma/KMRLSIH
-              {"\n"}cd KMRLSIH
+              git clone https://github.com/aadicoder1/KMRL_DMS
+              {"\n"}cd KMRL_DMS
             </pre>
           </div>
           <div>
@@ -161,7 +161,7 @@ GET  /profile/history?user_id=<id>`}
 
         <Section id="structure" title="📂 Project Structure">
           <pre className="bg-green-50 p-2 rounded text-xs border border-green-200">
-            {`KMRLSIH/
+            {`KMRL_DMS/
 ├─ frontend/
 ├─ backend/
 ├─ database/
