@@ -136,11 +136,11 @@ async def listdocs(request: Request, user_id: str):
         return {"data": json.loads(cached_data), "cached": True}
 
     # Fetch department ID
-    dept_resp = supabase.table("users").select("department").eq("id", user_id).execute()
+    dept_resp = supabase.table("users").select("dept_id").eq("id", user_id).execute()
     if not dept_resp.data:
         raise HTTPException(status_code=404, detail="User not found")
 
-    dept_id = dept_resp.data[0]["department"]
+    dept_id = dept_resp.data[0]["dept_id"]
 
     # Fetch documents
     response = supabase.table("documents").select("*").eq("department", dept_id).execute()

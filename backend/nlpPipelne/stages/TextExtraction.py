@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import email
 import os
 # import json
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def extract_text_from_pdf(file_path):
     text = ""
