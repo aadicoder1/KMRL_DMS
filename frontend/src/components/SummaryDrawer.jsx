@@ -1,25 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSummary } from "../api/services";
-import { X, Loader2 } from "lucide-react";
+import { X, Loader2, Globe } from "lucide-react";
+import api from "../api/api";
+
+const LANGUAGES = {
+  en: "English",
+  hi: "Hindi",
+  ml: "Malayalam",
+  ta: "Tamil",
+  te: "Telugu",
+  kn: "Kannada",
+  mr: "Marathi",
+  gu: "Gujarati",
+  pa: "Punjabi",
+  bn: "Bengali",
+  or: "Odia",
+  ur: "Urdu",
+};
 
 const SummaryDrawer = ({ isOpen, onClose, docId }) => {
   const [summaryData, setSummaryData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedLang, setSelectedLang] = useState("en");
+  const [translating, setTranslating] = useState(false);
+  const [displayedSummary, setDisplayedSummary] = useState("");
 
   // Fetch summary when drawer opens
   useEffect(() => {
     const fetchSummary = async () => {
       if (!isOpen || !docId) return;
-      
       setLoading(true);
       setError(null);
       setSummaryData(null);
+      setDisplayedSummary("");
+      setSelectedLang("en");
 
       try {
         const response = await getSummary(docId);
         setSummaryData(response);
+        setDisplayedSummary(response.summary || "");
       } catch (err) {
         console.error("Error fetching summary:", err);
         setError("Failed to fetch document summary");
@@ -27,7 +48,6 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
         setLoading(false);
       }
     };
-
     fetchSummary();
   }, [isOpen, docId]);
 
@@ -37,8 +57,32 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
       setSummaryData(null);
       setError(null);
       setLoading(false);
+      setSelectedLang("en");
+      setDisplayedSummary("");
     }
   }, [isOpen]);
+
+  // Handle language change
+  const handleLanguageChange = async (lang) => {
+    setSelectedLang(lang);
+    if (lang === "en") {
+      setDisplayedSummary(summaryData?.summary || "");
+      return;
+    }
+
+    setTranslating(true);
+    try {
+      const response = await api.get("/documents/summary/translate", {
+        params: { doc_id: docId, lang },
+      });
+      setDisplayedSummary(response.data.summary || "");
+    } catch (err) {
+      console.error("Translation failed:", err);
+      setDisplayedSummary(summaryData?.summary || "");
+    } finally {
+      setTranslating(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -74,79 +118,62 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
               </button>
             </div>
 
+            {/* Language Selector */}
+            <div className="px-6 pt-4 pb-2">
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-green-500" />
+                <label className="text-sm font-medium text-green-500">
+                  Language
+                </label>
+              </div>
+              <select
+                value={selectedLang}
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                disabled={loading || !summaryData}
+                className="mt-2 w-full px-3 py-2 border border-green-200 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-400 disabled:opacity-50"
+              >
+                {Object.entries(LANGUAGES).map(([code, name]) => (
+                  <option key={code} value={code}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Content */}
             <div className="flex-1 p-6 overflow-y-auto">
               <div className="space-y-4">
                 <div>
-                  <div className="text-sm font-medium text-green-500 mb-2">
-                    <h3 className="border-b-1 mb-5">Document ID</h3>
-                  </div>
-                  <p className="text-gray-800">{docId}</p>
+                  <h3 className="text-sm font-medium text-green-500 border-b border-green-100 pb-1 mb-3">
+                    Document ID
+                  </h3>
+                  <p className="text-gray-800 text-sm">{docId}</p>
                 </div>
 
                 {/* Summary Content */}
                 <div>
-                  <div className="text-sm font-medium text-green-500 mb-2">
-                    <h3 className="border-b-1 mb-5">Summary</h3>
-                  </div>
-                  <div className="border-green-200 p-4 text-green-500 rounded-lg">
+                  <h3 className="text-sm font-medium text-green-500 border-b border-green-100 pb-1 mb-3">
+                    Summary — {LANGUAGES[selectedLang]}
+                  </h3>
+                  <div className="border border-green-200 p-4 rounded-lg">
                     {loading ? (
                       <div className="flex items-center justify-center space-x-2">
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <Loader2 className="w-4 h-4 animate-spin text-green-500" />
                         <p className="text-green-500">Loading summary...</p>
                       </div>
                     ) : error ? (
-                      <div className="text-red-500">
-                        <p>⚠️ {error}</p>
+                      <p className="text-red-500">⚠️ {error}</p>
+                    ) : translating ? (
+                      <div className="flex items-center justify-center space-x-2">
+                        <Loader2 className="w-4 h-4 animate-spin text-green-500" />
+                        <p className="text-green-500">Translating...</p>
                       </div>
-                    ) : summaryData ? (
-                      <div className="space-y-4">
-                        {/* Display summary based on your API response structure */}
-                        {summaryData.summary && (
-                          <div>
-                            <h4 className="font-semibold text-green-600 mb-2">Summary</h4>
-                            <p className="text-gray-700">{summaryData.summary}</p>
-                          </div>
-                        )}
-                        
-                        {summaryData.key_points && Array.isArray(summaryData.key_points) && (
-                          <div>
-                            <h4 className="font-semibold text-green-600 mb-2">Key Points</h4>
-                            <ul className="list-disc list-inside space-y-1 text-gray-700">
-                              {summaryData.key_points.map((point, index) => (
-                                <li key={index}>{point}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {summaryData.document_type && (
-                          <div>
-                            <h4 className="font-semibold text-green-600 mb-2">Document Type</h4>
-                            <p className="text-gray-700">{summaryData.document_type}</p>
-                          </div>
-                        )}
-
-                        {summaryData.compliance_status && (
-                          <div>
-                            <h4 className="font-semibold text-green-600 mb-2">Compliance Status</h4>
-                            <p className="text-gray-700">{summaryData.compliance_status}</p>
-                          </div>
-                        )}
-
-                        {/* Fallback if summaryData has different structure */}
-                        {!summaryData.summary && !summaryData.key_points && (
-                          <div>
-                            <pre className="text-sm text-gray-700 whitespace-pre-wrap">
-                              {JSON.stringify(summaryData, null, 2)}
-                            </pre>
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-green-500">
-                        Click "Get Summary" to load document summary
+                    ) : displayedSummary ? (
+                      <p className="text-gray-700 leading-relaxed">
+                        {displayedSummary}
                       </p>
+                    ) : (
+                      <p className="text-green-400">No summary available</p>
                     )}
                   </div>
                 </div>

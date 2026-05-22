@@ -18,7 +18,7 @@ const History = () => {
   const loadHistory = async () => {
     try {
       setLoading(true);
-      const historyData = await getUserHistory(user);
+      const historyData = await getUserHistory(user.id);
       setHistory(historyData);
     } catch (error) {
       console.error("Failed to load history:", error);

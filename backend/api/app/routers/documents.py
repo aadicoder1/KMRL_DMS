@@ -8,6 +8,8 @@ from nlpPipelne.ProcessPipeline import process_file
 from nlpPipelne.stages.EmbedIndex import search
 import json
 from fastapi import Request
+from deep_translator import GoogleTranslator
+
 
 router = APIRouter()
 
@@ -28,6 +30,7 @@ async def receive_url(request: URLRequest):
                 f.write(content)
 
     output = await process_file(file_location)
+   
     upload_result = cloudinary.uploader.upload(content, resource_type="auto")
 
     dept_resp = supabase.table("departments").select("dept_id").eq("name", request.dept_name).execute()
@@ -84,6 +87,7 @@ async def receive_file(
             raise HTTPException(status_code=400, detail="Department not found")
         dept_id = dept_resp.data[0]["dept_id"]
 
+        # Keep it simple:
         upload_result = cloudinary.uploader.upload(content, resource_type="auto")
 
         doc_resp = supabase.table("documents").insert({
@@ -118,12 +122,13 @@ async def receive_file(
     }
 
 @router.get("/summary")
-async def summary(request: SUMMARYRequest):
+async def summary(doc_id: str):
     response = supabase.table("summaries").select("content") \
-        .eq("doc_id", request.doc_id).execute()
+        .eq("doc_id", doc_id).execute()
     if response.data:
         return {"summary": response.data[0]["content"]}
     return {"error": "No summary found"}
+
 
 @router.get("/listdocs")
 async def listdocs(request: Request, user_id: str):
@@ -152,9 +157,10 @@ async def listdocs(request: Request, user_id: str):
 
     return {"data": response.data, "cached": False}
 
+
 @router.get("/compliances")
-async def compliances(request: compliancesRequest):
-    response = supabase.table("compliances").select("*").eq("doc_id", request.doc_id).execute()
+async def compliances(doc_id: str):
+    response = supabase.table("compliances").select("*").eq("doc_id", doc_id).execute()
     if response.data:
         return {"data": response.data}
     return {"error": "No compliances found"}
@@ -163,3 +169,41 @@ async def compliances(request: compliancesRequest):
 async def search_docs(request: searchRequest):
     results = search(request.query)
     return {"results": results}
+
+
+
+LANGUAGES = {
+    "en": "English",
+    "hi": "Hindi",
+    "ml": "Malayalam", 
+    "ta": "Tamil",
+    "te": "Telugu",
+    "kn": "Kannada",
+    "mr": "Marathi",
+    "gu": "Gujarati",
+    "pa": "Punjabi",
+    "bn": "Bengali",
+    "or": "Odia",
+    "ur": "Urdu"
+}
+@router.get("/summary/translate")
+async def translate_summary(doc_id: str, lang: str = "en"):
+    response = supabase.table("summaries").select("content")\
+        .eq("doc_id", doc_id).execute()
+    
+    if not response.data:
+        return {"error": "No summary found"}
+    
+    english_summary = response.data[0]["content"]
+    
+    if lang == "en":
+        return {"summary": english_summary, "language": "English"}
+    
+    if lang not in LANGUAGES:
+        return {"error": f"Unsupported language: {lang}"}
+    
+    try:
+        translated = GoogleTranslator(source="en", target=lang).translate(english_summary)
+        return {"summary": translated, "language": LANGUAGES[lang]}
+    except Exception as e:
+        return {"error": f"Translation failed: {str(e)}"}

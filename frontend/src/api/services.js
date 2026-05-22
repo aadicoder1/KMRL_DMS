@@ -74,7 +74,7 @@ export const uploadFile = async (formData) => {
     
     const response = await api.post('/documents/file', formData, {
       // Don't set Content-Type - let axios handle it for FormData
-      timeout: 60000, // Increase timeout to 60 seconds for file uploads
+      timeout: 300000, // Increase timeout to 60 seconds for file uploads
     });
     
     console.log('Upload successful:', response.data);

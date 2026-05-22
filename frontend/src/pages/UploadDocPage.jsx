@@ -5,11 +5,16 @@ import { useAuth } from "../context/AuthContext";
 import { uploadFile } from "../api/services";
 
 const departmentsList = [
-  "Engineering",
-  "Procurement", 
+  "Operations",
+  "Maintenance",
+  "Signaling & Telecom",
+  "Security",
+  "Ticketing & Customer Care",
   "HR",
   "Finance",
-  "Legal & Compliance",
+  "IT & Software",
+  "Project Management",
+  "Administration",
 ];
 
 function UploadDocPage() {

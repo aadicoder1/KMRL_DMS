@@ -49,11 +49,13 @@ const DocumentViewerPage = ({ isOpen, onClose, document, userId }) => {
   }, [isOpen]);
 
   // Check if the document is a PDF
-  const isPDF = (doc) => doc?.url && (
-    doc.url.toLowerCase().includes('.pdf') || 
-    doc.url.toLowerCase().includes('pdf') ||
-    doc.title?.toLowerCase().includes('.pdf')
-  );
+  const isPDF = (doc) => {
+    if (!doc?.url) return false;
+    return (
+      doc.url.toLowerCase().includes('.pdf') ||
+      doc.title?.toLowerCase().includes('.pdf')
+    );
+  };
 
   const handleComplianceDocClick = (complianceDoc) => {
     setSelectedComplianceDoc(complianceDoc);
@@ -63,43 +65,56 @@ const DocumentViewerPage = ({ isOpen, onClose, document, userId }) => {
     setSelectedComplianceDoc(null);
   };
 
-  const renderDocumentViewer = (doc) => {
-    if (isPDF(doc) && doc.url && doc.url !== "#") {
-      return (
-        <iframe
-          src={`${doc.url}#toolbar=1&navpanes=1&scrollbar=1`}
-          className="w-full h-full rounded-lg border border-gray-300"
-          title={`PDF Viewer - ${doc.title}`}
-        />
-      );
-    } else if (doc.url && doc.url !== "#") {
-      return (
-        <div className="h-full flex flex-col items-center justify-center space-y-4">
-          <FileText className="w-16 h-16 text-gray-400" />
-          <div className="text-center">
-            <p className="text-gray-600 mb-4">
-              This file type cannot be previewed in the browser.
-            </p>
-            <button
-              onClick={() => window.open(doc.url, "_blank")}
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-            >
-              Open in New Tab
-            </button>
-          </div>
+const renderDocumentViewer = (doc) => {
+  console.log("Doc passed to viewer:", doc);
+  
+  if (!doc?.url || doc.url === "#") {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <div className="text-center text-gray-500">
+          <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
+          <p>No preview available</p>
         </div>
-      );
-    } else {
-      return (
-        <div className="h-full flex items-center justify-center">
-          <div className="text-center text-gray-500">
-            <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-            <p>No preview available</p>
-          </div>
-        </div>
-      );
-    }
-  };
+      </div>
+    );
+  }
+
+  if (isPDF(doc)) {
+  return (
+    <div className="h-full flex flex-col items-center justify-center space-y-4">
+      <FileText className="w-16 h-16 text-gray-400" />
+      <div className="text-center">
+        <p className="text-gray-600 mb-4">
+          Click below to view the document.
+        </p>
+        <button
+          onClick={() => window.open(doc.url, "_blank")}
+          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+        >
+          Open PDF
+        </button>
+      </div>
+    </div>
+  );
+}
+
+  return (
+    <div className="h-full flex flex-col items-center justify-center space-y-4">
+      <FileText className="w-16 h-16 text-gray-400" />
+      <div className="text-center">
+        <p className="text-gray-600 mb-4">
+          This file type cannot be previewed in the browser.
+        </p>
+        <button
+          onClick={() => window.open(doc.url, "_blank")}
+          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+        >
+          Open in New Tab
+        </button>
+      </div>
+    </div>
+  );
+};
 
   const renderComplianceContent = () => {
     if (selectedComplianceDoc) {

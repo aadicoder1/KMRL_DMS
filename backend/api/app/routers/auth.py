@@ -79,3 +79,10 @@ async def login(request: LoginRequest):
 async def create_department(name: str):
     response = supabase.table("departments").insert({"name": name}).execute()
     return {"success": True, "message": response.data[0]}
+
+@router.get("/dept_name")
+async def get_department_name(dept_id: int):
+    response = supabase.table("departments").select("name").eq("dept_id", dept_id).execute()
+    if not response.data:
+        raise HTTPException(status_code=404, detail="Department not found")
+    return {"name": response.data[0]["name"]}
