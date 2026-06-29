@@ -143,7 +143,7 @@ const renderDocumentViewer = (doc) => {
       return (
         <div className="flex items-center justify-center h-32">
           <div className="flex items-center space-x-2">
-            <Loader2 className="w-5 h-5 animate-spin text-green-600" />
+            <Loader2 className="w-5 h-5 animate-spin text-[#0066B3]" />
             <span className="text-gray-600">Loading compliance...</span>
           </div>
         </div>
@@ -201,9 +201,9 @@ const renderDocumentViewer = (doc) => {
 
         {/* Compliance Status */}
         {complianceData.compliance_status && (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+          <div className="bg-green-50 border  border-[#D6E0EA] rounded-lg p-4">
             <h4 className="font-medium text-green-800 mb-2">Overall Status</h4>
-            <p className="text-green-700">{complianceData.compliance_status}</p>
+            <p className="text-[#004F8C]">{complianceData.compliance_status}</p>
           </div>
         )}
 
@@ -232,7 +232,7 @@ const renderDocumentViewer = (doc) => {
             <ul className="space-y-2">
               {complianceData.requirements.map((requirement, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#0066B3] mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700 text-sm">{requirement}</span>
                 </li>
               ))}
@@ -340,7 +340,7 @@ const renderDocumentViewer = (doc) => {
         <div className="w-96 bg-white border-l border-gray-200 flex flex-col">
           <div className="p-4 bg-gray-50 border-b border-gray-200">
             <h3 className="font-medium text-gray-800 flex items-center">
-              <CheckCircle className="w-5 h-5 mr-2 text-green-600" />
+              <CheckCircle className="w-5 h-5 mr-2 text-[#0066B3]" />
               {selectedComplianceDoc ? "Document Info" : "Compliance Information"}
             </h3>
           </div>

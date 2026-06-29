@@ -55,7 +55,7 @@ const ProfilePreferences = () => {
           <div
             className={`mb-8 p-4 rounded-lg shadow-md border ${
               message.type === "success"
-                ? "bg-green-50 border-green-200 text-green-700"
+                ? "bg-green-50  border-[#D6E0EA] text-[#004F8C]"
                 : "bg-red-50 border-red-200 text-red-700"
             }`}
           >
@@ -69,7 +69,7 @@ const ProfilePreferences = () => {
             {/* Notification Channels */}
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <Mail className="w-5 h-5 text-green-600" /> Notification
+                <Mail className="w-5 h-5 text-[#0066B3]" /> Notification
                 Channels
               </h3>
               <div className="space-y-5">
@@ -88,7 +88,7 @@ const ProfilePreferences = () => {
                   onChange={() =>
                     handlePreferenceChange("whatsappNotifications")
                   }
-                  icon={<MessageSquare className="w-5 h-5 text-green-600" />}
+                  icon={<MessageSquare className="w-5 h-5 text-[#0066B3]" />}
                 />
               </div>
             </div>
@@ -96,7 +96,7 @@ const ProfilePreferences = () => {
             {/* Notification Types */}
             <div className="pt-6 border-t border-gray-200">
               <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-green-600" />{" "}
+                <AlertTriangle className="w-5 h-5 text-[#0066B3]" />{" "}
                 Notification Types
               </h3>
               <div className="space-y-5">
@@ -117,7 +117,7 @@ const ProfilePreferences = () => {
                   description="Be notified when documents you viewed are updated."
                   checked={preferences.documentUpdates}
                   onChange={() => handlePreferenceChange("documentUpdates")}
-                  icon={<FileText className="w-5 h-5 text-green-600" />}
+                  icon={<FileText className="w-5 h-5 text-[#0066B3]" />}
                 />
               </div>
             </div>

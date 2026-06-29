@@ -107,12 +107,12 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <h2 className="text-xl font-semibold text-green-500">
+              <h2 className="text-xl font-semibold text-[#0066B3]">
                 Document Summary
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-green-500 hover:text-green-200 rounded-full transition-colors"
+                className="p-2 hover:bg-[#004F8C]  hover:text-white rounded-full transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -121,8 +121,8 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
             {/* Language Selector */}
             <div className="px-6 pt-4 pb-2">
               <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-green-500" />
-                <label className="text-sm font-medium text-green-500">
+                <Globe className="w-4 h-4 text-[#0066B3]" />
+                <label className="text-sm font-medium text-[#0066B3]">
                   Language
                 </label>
               </div>
@@ -130,7 +130,7 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
                 value={selectedLang}
                 onChange={(e) => handleLanguageChange(e.target.value)}
                 disabled={loading || !summaryData}
-                className="mt-2 w-full px-3 py-2 border border-green-200 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-400 disabled:opacity-50"
+                className="mt-2 w-full px-3 py-2 border  border-[#D6E0EA] rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-400 disabled:opacity-50"
               >
                 {Object.entries(LANGUAGES).map(([code, name]) => (
                   <option key={code} value={code}>
@@ -144,7 +144,7 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
             <div className="flex-1 p-6 overflow-y-auto">
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-medium text-green-500 border-b border-green-100 pb-1 mb-3">
+                  <h3 className="text-sm font-medium text-[#0066B3] border-b border-green-100 pb-1 mb-3">
                     Document ID
                   </h3>
                   <p className="text-gray-800 text-sm">{docId}</p>
@@ -152,28 +152,28 @@ const SummaryDrawer = ({ isOpen, onClose, docId }) => {
 
                 {/* Summary Content */}
                 <div>
-                  <h3 className="text-sm font-medium text-green-500 border-b border-green-100 pb-1 mb-3">
+                  <h3 className="text-sm font-medium text-[#0066B3] border-b border-green-100 pb-1 mb-3">
                     Summary — {LANGUAGES[selectedLang]}
                   </h3>
-                  <div className="border border-green-200 p-4 rounded-lg">
+                  <div className="border  border-[#D6E0EA] p-4 rounded-lg">
                     {loading ? (
                       <div className="flex items-center justify-center space-x-2">
-                        <Loader2 className="w-4 h-4 animate-spin text-green-500" />
-                        <p className="text-green-500">Loading summary...</p>
+                        <Loader2 className="w-4 h-4 animate-spin text-[#0066B3]" />
+                        <p className="text-[#0066B3]">Loading summary...</p>
                       </div>
                     ) : error ? (
                       <p className="text-red-500">⚠️ {error}</p>
                     ) : translating ? (
                       <div className="flex items-center justify-center space-x-2">
-                        <Loader2 className="w-4 h-4 animate-spin text-green-500" />
-                        <p className="text-green-500">Translating...</p>
+                        <Loader2 className="w-4 h-4 animate-spin text-[#0066B3]" />
+                        <p className="text-[#0066B3]">Translating...</p>
                       </div>
                     ) : displayedSummary ? (
                       <p className="text-gray-700 leading-relaxed">
                         {displayedSummary}
                       </p>
                     ) : (
-                      <p className="text-green-400">No summary available</p>
+                      <p className="text-[#5A7184]">No summary available</p>
                     )}
                   </div>
                 </div>

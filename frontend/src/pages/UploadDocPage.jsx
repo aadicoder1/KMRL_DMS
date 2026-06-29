@@ -168,7 +168,7 @@ const handleSubmit = async () => {
   const getStatusIcon = (status) => {
     switch (status) {
       case 'success':
-        return <CheckCircle className="text-green-500" size={16} />;
+        return <CheckCircle className="text-[#0066B3]" size={16} />;
       case 'error':
         return <XCircle className="text-red-500" size={16} />;
       case 'uploading':
@@ -195,7 +195,7 @@ const handleSubmit = async () => {
             type="text"
             value={user?.id || ""}
             disabled
-            className="w-full rounded-lg border border-green-200 p-3 bg-green-200 text-green-500 font-medium"
+            className="w-full rounded-lg border  border-[#D6E0EA] p-3 bg-[#E8F2FB] text-[#0066B3] font-medium"
           />
         </div>
 
@@ -212,8 +212,8 @@ const handleSubmit = async () => {
                 disabled={isLoading}
                 className={`px-5 py-2 rounded-full border font-semibold transition ${
                   priority === p
-                    ? "bg-gradient-to-r from-green-200 to-green-300 text-green-700 border-green-500"
-                    : "bg-white text-green-500 border-gray-300 hover:border-green-500 hover:bg-green-50"
+                    ? "bg-gradient-to-r from-green-200 to-green-300 text-[#004F8C] border-green-500"
+                    : "bg-white text-[#0066B3] border-gray-300 hover:border-green-500 hover:bg-green-50"
                 } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 {p.charAt(0).toUpperCase() + p.slice(1)}
@@ -235,7 +235,7 @@ const handleSubmit = async () => {
                 disabled={isLoading}
                 className={`px-4 py-2 rounded-full border font-medium transition ${
                   selectedDepartments.includes(dept)
-                    ? "bg-green-200 text-green-700 border-green-200"
+                    ? "bg-[#E8F2FB] text-[#004F8C]  border-[#D6E0EA]"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-green-50 hover:border-green-500"
                 } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
@@ -257,7 +257,7 @@ const handleSubmit = async () => {
                 <div className="flex items-center gap-2">
                   {getStatusIcon(progress.status)}
                   <span className={`text-sm ${
-                    progress.status === 'success' ? 'text-green-600' :
+                    progress.status === 'success' ? 'text-[#0066B3]' :
                     progress.status === 'error' ? 'text-red-600' :
                     progress.status === 'uploading' ? 'text-blue-600' :
                     'text-gray-500'
@@ -287,7 +287,7 @@ const handleSubmit = async () => {
             <p className="text-sm text-gray-500 mb-4">
               Supported: pdf, doc, docx, xls, xlsx, images
             </p>
-            <button className="px-6 py-2 rounded-lg bg-green-200 text-green-700 font-semibold shadow hover:bg-green-500 hover:text-white transition">
+            <button className="px-6 py-2 rounded-lg bg-[#E8F2FB] text-[#004F8C] font-semibold shadow hover:bg-[#004F8C] hover:text-white transition">
               Select File
             </button>
           </>
@@ -319,7 +319,7 @@ const handleSubmit = async () => {
           className={`px-10 py-3 rounded-lg font-semibold text-black shadow transition-all ${
             isLoading || !selectedFile || !selectedDepartments.length
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-green-200 text-green-500 hover:bg-green-500 hover:text-white"
+              : "bg-[#E8F2FB] text-[#0066B3] hover:bg-[#004F8C] hover:text-white"
           }`}
         >
           {isLoading ? "Uploading..." : "Submit"}

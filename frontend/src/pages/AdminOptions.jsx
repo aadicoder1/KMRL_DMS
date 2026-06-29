@@ -71,11 +71,11 @@ export default function AdminOptions() {
           placeholder="Department Name"
           value={departmentName}
           onChange={(e) => setDepartmentName(e.target.value)}
-          className="w-full px-4 py-3 rounded-2xl border border-green-400 focus:outline-none placeholder-green-500 text-green-500"
+          className="w-full px-4 py-3 rounded-2xl border border-green-400 focus:outline-none placeholder-green-500 text-[#0066B3]"
         />
         <button
           onClick={handleCreateDepartment}
-          className="self-start px-6 py-3 rounded-2xl bg-green-100 text-green-500 hover:bg-green-500 hover:text-green-200 transition shadow"
+          className="self-start px-6 py-3 rounded-2xl  bg-[#E8F2FB] text-[#0066B3] hover:bg-[#004F8C]  hover:text-white transition shadow"
         >
           Create Department
         </button>
@@ -90,7 +90,7 @@ export default function AdminOptions() {
             placeholder="Full Name"
             value={newUser.name}
             onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
-            className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500"
+            className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8]"
           />
           <input
             type="password"
@@ -99,21 +99,21 @@ export default function AdminOptions() {
             onChange={(e) =>
               setNewUser({ ...newUser, password: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500"
+            className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8]"
           />
           <input
             type="email"
             placeholder="Email"
             value={newUser.email}
             onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-            className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500"
+            className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8]"
           />
           <input
             type="tel"
             placeholder="Mobile Number"
             value={newUser.phone}
             onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })}
-            className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500"
+            className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8]"
           />
         </div>
 
@@ -124,13 +124,13 @@ export default function AdminOptions() {
           onChange={(e) =>
             setNewUser({ ...newUser, department: e.target.value })
           }
-          className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500"
+          className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8]"
         />
 
         <select
           value={newUser.role}
           onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
-          className="w-full md:w-1/3 px-4 py-3 rounded-2xl border text-green-500 border-green-400 placeholder-green-500"
+          className="w-full md:w-1/3 px-4 py-3 rounded-2xl border text-[#0066B3] border-green-400 placeholder-green-500"
         >
           <option value="">Select Role</option>
           <option value="admin">Manager</option>
@@ -139,7 +139,7 @@ export default function AdminOptions() {
 
         <button
           onClick={handleCreateUser}
-          className="self-start px-6 py-3 rounded-2xl bg-green-100 text-green-500 hover:bg-green-500 hover:text-green-200 transition shadow mt-2"
+          className="self-start px-6 py-3 rounded-2xl  bg-[#E8F2FB] text-[#0066B3] hover:bg-[#004F8C]  hover:text-white transition shadow mt-2"
         >
           Create User
         </button>
@@ -155,18 +155,18 @@ export default function AdminOptions() {
           placeholder="User ID"
           value={deptChange.userId}
           onChange={(e) => setDeptChange({ ...deptChange, userId: e.target.value })}
-          className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500 text-green-500"
+          className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8] text-[#0066B3]"
         />
         <input
           type="text"
           placeholder="New Department Name"
           value={deptChange.deptName}
           onChange={(e) => setDeptChange({ ...deptChange, deptName: e.target.value })}
-          className="w-full px-4 py-3 rounded-2xl border border-green-400 placeholder-green-500 text-green-500"
+          className="w-full px-4 py-3 rounded-2xl border border-[#D6E0EA] placeholder-[#8FA3B8] text-[#0066B3]"
         />
         <button
           onClick={handleChangeDepartment}
-          className="self-start px-6 py-3 rounded-2xl bg-green-100 text-green-500 hover:bg-green-500 hover:text-green-200 transition shadow"
+          className="self-start px-6 py-3 rounded-2xl  bg-[#E8F2FB] text-[#0066B3] hover:bg-[#004F8C]  hover:text-white transition shadow"
         >
           Change Department
         </button>

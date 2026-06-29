@@ -9,7 +9,7 @@ export default function Footer() {
         z-30
       "
     >
-      <p className="text-sm text-green-500">
+      <p className="text-sm text-[#0066B3]">
         © {new Date().getFullYear()} KMRL_DMS
       </p>
     </footer>

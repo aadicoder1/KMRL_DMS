@@ -44,7 +44,7 @@ function RecentDocuments() {
       case "medium":
         return "bg-yellow-400";
       case "low":
-        return "bg-green-500";
+        return "bg-[#0066B3]";
       default:
         return "bg-gray-400";
     }
@@ -53,7 +53,7 @@ function RecentDocuments() {
   const getStatusColor = (status) => {
     switch (status) {
       case "processed":
-        return "text-green-700 bg-green-100";
+        return "text-[#004F8C]  bg-[#E8F2FB]";
       case "processing":
         return "text-yellow-700 bg-yellow-100";
       case "uploading":

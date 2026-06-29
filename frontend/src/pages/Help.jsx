@@ -19,35 +19,33 @@ export default function Help() {
   };
 
   const Section = ({ id, title, children }) => (
-    <div className="mb-2">
-      <button
-        onClick={() => toggleSection(id)}
-        className="flex items-center space-x-2 text-left w-full group px-2 py-1 
-                   rounded-md transition-all duration-200
-                   hover:bg-green-50 hover:border-l-4 hover:border-green-500"
-      >
-        {openSections[id] ? (
-          <ChevronDown className="w-4 h-4 text-green-500 transition-transform" />
-        ) : (
-          <ChevronRight className="w-4 h-4 text-green-500 transition-transform" />
-        )}
-        {openSections[id] ? (
-          <FolderOpen className="w-4 h-4 text-green-500" />
-        ) : (
-          <Folder className="w-4 h-4 text-green-500" />
-        )}
-        <span className="font-medium text-neutral-800 group-hover:text-green-600">
-          {title}
-        </span>
-      </button>
-
-      {openSections[id] && (
-        <div className="ml-8 mt-2 text-sm text-neutral-700 space-y-2 border-l border-neutral-200 pl-4">
-          {children}
-        </div>
+  <div className="mb-2">
+    <button
+      onClick={() => toggleSection(id)}
+      className="flex items-center space-x-2 text-left w-full group px-2 py-1 rounded-md transition-all duration-200 hover:bg-[#E8F2FB] hover:border-l-4 hover:border-[#0066B3]"
+    >
+      {openSections[id] ? (
+        <ChevronDown className="w-4 h-4 text-blue-700 transition-transform" />
+      ) : (
+        <ChevronRight className="w-4 h-4 text-blue-700 transition-transform" />
       )}
-    </div>
-  );
+      {openSections[id] ? (
+        <FolderOpen className="w-4 h-4 text-blue-700" />
+      ) : (
+        <Folder className="w-4 h-4 text-blue-700" />
+      )}
+      <span className="font-medium text-neutral-800 group-hover:text-blue-700">
+        {title}
+      </span>
+    </button>
+
+    {openSections[id] && (
+      <div className="ml-8 mt-2 text-sm text-neutral-700 space-y-2 border-l border-neutral-200 pl-4">
+        {children}
+      </div>
+    )}
+  </div>
+);
 
   return (
     <div className="px-6 py-10 max-w-8xl h-full mx-auto">
@@ -58,7 +56,7 @@ export default function Help() {
           alt="Kochi Metro"
           className="mx-auto mb-4 w-full h-80 object-contain"
         />
-        <h1 className="text-3xl font-heading text-green-500 mb-2">
+        <h1 className="text-3xl font-heading text-[#0066B3] mb-2">
           KMRL_DMS — Smart Engine of Directives
         </h1>
         <p className="text-neutral-600">
@@ -71,12 +69,12 @@ export default function Help() {
         <Section id="intro" title="🤖 Introduction">
           <p>
             KMRL_DMS converts fragmented and multilingual documents into{" "}
-            <strong className="text-green-600">
+            <strong className="text-[#0066B3]">
               searchable, prioritized directives
             </strong>
             .
           </p>
-          <ul className="list-disc ml-6 space-y-1 marker:text-green-500">
+          <ul className="list-disc ml-6 space-y-1 marker:text-[#0066B3]">
             <li>Ingest → WhatsApp, Email, SharePoint, uploads</li>
             <li>Process → OCR → NLP → Semantic chunking → Summarization</li>
             <li>Classify → Priority detection + notifications</li>
@@ -85,7 +83,7 @@ export default function Help() {
         </Section>
 
         <Section id="tech" title="⚙️ Tech Stack">
-          <ul className="list-disc ml-6 space-y-1 marker:text-green-500">
+          <ul className="list-disc ml-6 space-y-1 marker:text-[#0066B3]">
             <li>Frontend: React (Vite)</li>
             <li>Backend: FastAPI (Python)</li>
             <li>AI/ML: OCR, NLP, Transformers, FAISS</li>
@@ -97,7 +95,7 @@ export default function Help() {
         </Section>
 
         <Section id="features" title="🔋 Features">
-          <ul className="list-disc ml-6 space-y-1 marker:text-green-500">
+          <ul className="list-disc ml-6 space-y-1 marker:text-[#0066B3]">
             <li>Unified Upload Hub</li>
             <li>Five-stage AI pipeline</li>
             <li>Priority classification + alerts</li>
@@ -110,21 +108,21 @@ export default function Help() {
 
         <Section id="quick" title="🤸 Quick Start">
           <div>
-            <p className="font-semibold text-green-600">1) Clone</p>
-            <pre className="bg-green-50 p-2 rounded border border-green-200 text-sm">
+            <p className="font-semibold text-[#0066B3]">1) Clone</p>
+            <pre className="bg-green-50 p-2 rounded border  border-[#D6E0EA] text-sm">
               git clone https://github.com/aadicoder1/KMRL_DMS
               {"\n"}cd KMRL_DMS
             </pre>
           </div>
           <div>
-            <p className="font-semibold text-green-600">2) Frontend</p>
-            <pre className="bg-green-50 p-2 rounded border border-green-200 text-sm">
+            <p className="font-semibold text-[#0066B3]">2) Frontend</p>
+            <pre className="bg-green-50 p-2 rounded border  border-[#D6E0EA] text-sm">
               cd frontend{"\n"}npm install{"\n"}npm run dev
             </pre>
           </div>
           <div>
-            <p className="font-semibold text-green-600">3) Backend</p>
-            <pre className="bg-green-50 p-2 rounded border border-green-200 text-sm">
+            <p className="font-semibold text-[#0066B3]">3) Backend</p>
+            <pre className="bg-green-50 p-2 rounded border  border-[#D6E0EA] text-sm">
               cd backend{"\n"}python -m venv venv{"\n"}source venv/bin/activate
               {"\n"}pip install -r requirements.txt{"\n"}
               uvicorn app.main:app --reload
@@ -133,34 +131,34 @@ export default function Help() {
         </Section>
 
         <Section id="env" title="🧾 Environment Variables">
-          <pre className="bg-green-50 p-3 rounded text-xs border border-green-200 overflow-x-auto">
+          <pre className="bg-green-50 p-3 rounded text-xs border  border-[#D6E0EA] overflow-x-auto">
             {`SUPABASE_URL=...
 SUPABASE_KEY=...
 DATABASE_URL=...
 REDIS_URL=redis://redis:6379/0`}
           </pre>
-          <p className="text-green-600 font-medium">
+          <p className="text-[#0066B3] font-medium">
             ⚠️ Never commit .env — use a secrets manager.
           </p>
         </Section>
 
         <Section id="docker" title="🐳 Docker Setup">
           <p>Backend Dockerfile example:</p>
-          <pre className="bg-green-50 p-2 rounded text-xs border border-green-200">
+          <pre className="bg-green-50 p-2 rounded text-xs border  border-[#D6E0EA]">
             {`FROM python:3.11-slim
 RUN apt-get update && apt-get install -y tesseract-ocr ...`}
           </pre>
         </Section>
 
         <Section id="api" title="🔁 API Examples">
-          <pre className="bg-green-50 p-2 rounded text-xs border border-green-200">
+          <pre className="bg-green-50 p-2 rounded text-xs border  border-[#D6E0EA]">
             {`POST /profile/history
 GET  /profile/history?user_id=<id>`}
           </pre>
         </Section>
 
         <Section id="structure" title="📂 Project Structure">
-          <pre className="bg-green-50 p-2 rounded text-xs border border-green-200">
+          <pre className="bg-green-50 p-2 rounded text-xs border  border-[#D6E0EA]">
             {`KMRL_DMS/
 ├─ frontend/
 ├─ backend/
@@ -171,7 +169,7 @@ GET  /profile/history?user_id=<id>`}
         </Section>
 
         <Section id="notes" title="✅ Notes & Recommendations">
-          <ul className="list-disc ml-6 space-y-1 marker:text-green-500">
+          <ul className="list-disc ml-6 space-y-1 marker:text-[#0066B3]">
             <li>Hash passwords, never plaintext</li>
             <li>Keep Supabase keys server-side</li>
             <li>Ensure Malayalam OCR traineddata</li>

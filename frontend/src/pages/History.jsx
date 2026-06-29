@@ -50,7 +50,7 @@ const History = () => {
           </div>
           <Link
             to="/dashboard"
-            className="px-5 py-2 bg-green-200 text-green-500 rounded-md hover:bg-green-500 hover:text-green-200 transition-colors"
+            className="px-5 py-2 bg-[#E8F2FB] text-[#0066B3] rounded-md hover:bg-[#004F8C]  hover:text-white transition-colors"
           >
             Back to Dashboard
           </Link>
@@ -68,11 +68,11 @@ const History = () => {
                 );
               const typeColor =
                 item.type === "view"
-                  ? "bg-green-100 text-green-600"
-                  : "bg-green-100 text-green-600";
+                  ? " bg-[#E8F2FB] text-[#0066B3]"
+                  : " bg-[#E8F2FB] text-[#0066B3]";
               const statusColor =
                 item.status === "completed"
-                  ? "bg-green-100 text-green-600"
+                  ? " bg-[#E8F2FB] text-[#0066B3]"
                   : "bg-yellow-100 text-yellow-600";
               return (
                 <div
@@ -86,10 +86,10 @@ const History = () => {
                       {icon}
                     </div>
                     <div>
-                      <h3 className="text-green-200 font-medium">
+                      <h3 className="text-[#E8F2FB] font-medium">
                         {item.documentName}
                       </h3>
-                      <p className="text-green-300 text-sm">
+                      <p className="text-[#8FA3B8]text-sm">
                         {item.action} •{" "}
                         {new Date(item.timestamp).toLocaleDateString()}
                       </p>
@@ -105,16 +105,16 @@ const History = () => {
             })
           ) : (
             <div className="text-center py-16">
-              <Clock className="mx-auto h-16 w-16 text-green-500 mb-4" />
-              <h3 className="text-lg font-medium text-green-500 mb-2">
+              <Clock className="mx-auto h-16 w-16 text-[#0066B3] mb-4" />
+              <h3 className="text-lg font-medium text-[#0066B3] mb-2">
                 No activity history yet
               </h3>
-              <p className="text-green-400 mb-6">
+              <p className="text-[#5A7184] mb-6">
                 Your document views and interactions will appear here.
               </p>
               <Link
                 to="/dashboard"
-                className="inline-flex items-center px-5 py-2  bg-green-200 text-green-500 rounded-md hover:bg-green-500 hover:text-green-200 transition-colors"
+                className="inline-flex items-center px-5 py-2  bg-[#E8F2FB] text-[#0066B3] rounded-md hover:bg-[#004F8C]  hover:text-white transition-colors"
               >
                 Browse Documents
               </Link>

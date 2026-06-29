@@ -49,18 +49,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <>
-      <header
-        className={`
-          fixed top-4 left-3/5 -translate-x-1/2
-          w-[calc(100%-2rem)] lg:w-[calc(100%-20rem)]
-          bg-gray/90 backdrop-blur-xl
-          px-4 py-3 sm:px-6 sm:py-4
-          bg-gray-50
-          rounded-2xl  
-          z-40 flex justify-between items-center
-          transition-all duration-300
-        `}
-      >
+      <header className="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-white border-b border-gray-200 px-4 sm:px-6 z-40 flex justify-between items-center">
         {/* Left side - Sidebar toggle + Search */}
         <div className="flex items-center gap-3">
           {/* Sidebar toggle (mobile) */}
@@ -95,7 +84,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           <button
             type="button"
             onClick={handleSearch}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-green-100 text-green-500 text-sm rounded-lg hover:bg-green-500 hover:text-green-200 transition-colors "
+            className="px-3 sm:px-4 py-1.5 sm:py-2  bg-[#E8F2FB] text-[#0066B3] text-sm rounded-lg hover:bg-[#004F8C]  hover:text-white transition-colors "
           >
             Search
           </button>
@@ -157,7 +146,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                         onClick={() => handleLanguageChange("en")}
                         className={`flex-1 px-3 py-1.5 text-sm font-medium rounded transition-colors ${
                           language === "en"
-                            ? "bg-white text-green-600 shadow"
+                            ? "bg-white text-[#0066B3] shadow"
                             : "text-gray-600"
                         }`}
                       >
@@ -167,7 +156,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
                         onClick={() => handleLanguageChange("ml")}
                         className={`flex-1 px-3 py-1.5 text-sm font-medium rounded transition-colors ${
                           language === "ml"
-                            ? "bg-white text-green-600 shadow"
+                            ? "bg-white text-[#0066B3] shadow"
                             : "text-gray-600"
                         }`}
                       >

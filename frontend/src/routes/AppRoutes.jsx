@@ -65,8 +65,7 @@ export default function AppRoutes() {
                   setSidebarOpen={setSidebarOpen}
                 />
 
-                <main className="flex-1 pt-16 lg:pt-16 ml-0 lg:ml-64 p-4 lg:p-6">
-                  <Routes>
+                <main className="flex-1 pt-20 ml-0 lg:ml-64 p-4 lg:p-8 min-h-screen bg-[#F4F7FA]">                  <Routes>
                     <Route
                       path="dashboard"
                       element={

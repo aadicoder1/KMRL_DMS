@@ -125,7 +125,7 @@ export default function UploadCompliance() {
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="self-start px-6 py-3 bg-green-200 text-green-500 rounded-xl hover:bg-green-600 hover:text-green-200 flex items-center gap-2 transition"
+          className="self-start px-6 py-3 bg-[#E8F2FB] text-[#0066B3] rounded-xl hover:bg-green-600  hover:text-white flex items-center gap-2 transition"
         >
           <UploadCloud className="w-5 h-5" />
           Submit Compliance

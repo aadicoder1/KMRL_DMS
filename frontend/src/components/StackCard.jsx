@@ -66,7 +66,7 @@ const StackCard = ({
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleOpenDocument(document)}
-                      className="px-2 py-1 bg-green-100 text-green-700 hover:bg-green-200 hover:text-green-800 rounded-lg text-xs transition"
+                      className="px-2 py-1  bg-[#E8F2FB] text-[#004F8C] hover:bg-[#E8F2FB] hover:text-green-800 rounded-lg text-xs transition"
                       disabled={isProcessingView}
                     >
                       {isProcessingView ? (
@@ -78,7 +78,7 @@ const StackCard = ({
 
                     <button
                       onClick={() => handleGetSummary(document)}
-                      className="px-2 py-1 border border-green-200 text-green-700 hover:bg-green-200 hover:text-green-800 rounded-lg text-xs transition"
+                      className="px-2 py-1 border  border-[#D6E0EA] text-[#004F8C] hover:bg-[#E8F2FB] hover:text-green-800 rounded-lg text-xs transition"
                       disabled={isProcessingView}
                     >
                       Summary

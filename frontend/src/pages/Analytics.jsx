@@ -164,7 +164,7 @@ const Analytics = ({ userRole = "admin", userDepartment = "Engineering" }) => {
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300 focus:outline-none"
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0066B3] focus:outline-none"
           >
             <option value="1month">Last Month</option>
             <option value="3months">Last 3 Months</option>
@@ -346,7 +346,7 @@ const Analytics = ({ userRole = "admin", userDepartment = "Engineering" }) => {
                 <div
                   className={`p-2 rounded-full ${
                     activity.type === "success"
-                      ? "bg-green-100"
+                      ? " bg-[#E8F2FB]"
                       : activity.type === "warning"
                       ? "bg-yellow-100"
                       : "bg-blue-100"
@@ -355,7 +355,7 @@ const Analytics = ({ userRole = "admin", userDepartment = "Engineering" }) => {
                   <activity.icon
                     className={`h-4 w-4 ${
                       activity.type === "success"
-                        ? "text-green-500"
+                        ? "text-[#0066B3]"
                         : activity.type === "warning"
                         ? "text-yellow-500"
                         : "text-blue-500"

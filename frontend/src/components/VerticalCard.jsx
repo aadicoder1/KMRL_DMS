@@ -83,7 +83,7 @@ const VerticalCard = ({
             </p>
             <div className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
               document.status === 'read' 
-                ? 'bg-green-100 text-green-700 border border-green-200'
+                ? ' bg-[#E8F2FB] text-[#004F8C] border  border-[#D6E0EA]'
                 : 'bg-yellow-100 text-yellow-700 border border-yellow-200'
             }`}>
               {document.status === 'read' ? '✓ Read' : '• Unread'}

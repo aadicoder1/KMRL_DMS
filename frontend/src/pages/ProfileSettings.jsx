@@ -148,7 +148,7 @@ const ProfileSettings = () => {
           <div
             className={`mb-6 p-4 rounded-lg border ${
               message.type === "success"
-                ? "bg-green-100 border-green-300 text-green-700"
+                ? " bg-[#E8F2FB] border-green-300 text-[#004F8C]"
                 : "bg-red-100 border-red-300 text-red-700"
             }`}
           >
@@ -160,9 +160,9 @@ const ProfileSettings = () => {
         {userProfile && (
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {/* Profile Header */}
-            <div className="bg-green-500 text-secondary p-6">
+            <div className="bg-[#0066B3] text-secondary p-6">
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-green-200 text-green-500 rounded-full flex items-center justify-center text-2xl font-bold">
+                <div className="w-16 h-16 bg-[#E8F2FB] text-[#0066B3] rounded-full flex items-center justify-center text-2xl font-bold">
                   {userProfile.name?.charAt(0) || "U"}
                 </div>
                 <div>
@@ -217,7 +217,7 @@ const ProfileSettings = () => {
                 ) : (
                   <button
                     onClick={() => handleEdit("name")}
-                    className="ml-4 px-4 py-2 text-green-500 hover:bg-green-500 hover:text-green-200 rounded-4xl transition-all"
+                    className="ml-4 px-4 py-2 text-[#0066B3] hover:bg-[#004F8C]  hover:text-white rounded-4xl transition-all"
                   >
                     Edit
                   </button>
@@ -259,7 +259,7 @@ const ProfileSettings = () => {
                 ) : (
                   <button
                     onClick={() => handleEdit("email")}
-                    className="ml-4 px-4 py-2  text-green-500 hover:bg-green-500 hover:text-green-200 rounded-4xl transition-all"
+                    className="ml-4 px-4 py-2  text-[#0066B3] hover:bg-[#004F8C]  hover:text-white rounded-4xl transition-all"
                   >
                     Edit
                   </button>
@@ -303,7 +303,7 @@ const ProfileSettings = () => {
                 ) : (
                   <button
                     onClick={() => handleEdit("phone")}
-                    className="ml-4 px-4 py-2  text-green-500 hover:bg-green-500 hover:text-green-200 transition-all rounded-4xl"
+                    className="ml-4 px-4 py-2  text-[#0066B3] hover:bg-[#004F8C]  hover:text-white transition-all rounded-4xl"
                   >
                     Edit
                   </button>
@@ -317,7 +317,7 @@ const ProfileSettings = () => {
                     Department
                   </label>
                   <div className="flex items-center space-x-3">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-700">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium  bg-[#E8F2FB] text-[#004F8C]">
                       {userProfile.department || "Not Assigned"}
                     </span>
                     <span className="text-xs text-neutral-500">

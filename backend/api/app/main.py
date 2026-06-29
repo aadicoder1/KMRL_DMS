@@ -32,11 +32,16 @@ app.include_router(documents.router, prefix="/documents", tags=["Documents"])
 
 @app.on_event("startup")
 async def startup_event():
-    app.state.redis = await get_redis()
+    try:
+        app.state.redis = await get_redis()
+    except Exception as e:
+        print(f"Redis connection failed: {e}. Running without cache.")
+        app.state.redis = None
 
 @app.on_event("shutdown")
 async def shutdown_event():
-    await app.state.redis.close()
+    if app.state.redis:
+        await app.state.redis.close()
 
 @app.get("/")
 async def home():

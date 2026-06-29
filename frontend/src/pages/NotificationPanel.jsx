@@ -61,9 +61,9 @@ export default function NotificationPanel() {
     upload: <Upload className="text-blue-500 w-5 h-5" />,
     edit: <Edit className="text-yellow-500 w-5 h-5" />,
     delete: <Trash2 className="text-red-500 w-5 h-5" />,
-    transaction: <CreditCard className="text-green-500 w-5 h-5" />,
+    transaction: <CreditCard className="text-[#0066B3] w-5 h-5" />,
     email: <Mail className="text-indigo-500 w-5 h-5" />,
-    whatsapp: <MessageCircle className="text-green-600 w-5 h-5" />,
+    whatsapp: <MessageCircle className="text-[#0066B3] w-5 h-5" />,
     other: <Globe className="text-gray-500 w-5 h-5" />,
   };
 

@@ -94,7 +94,7 @@ function UploadUrlPage() {
             type="text"
             value={user?.id || ""}
             disabled
-            className="w-full rounded-lg border border-green-200 p-3 bg-green-200 text-green-500 font-medium"
+            className="w-full rounded-lg border  border-[#D6E0EA] p-3 bg-[#E8F2FB] text-[#0066B3] font-medium"
           />
         </div>
 
@@ -111,8 +111,8 @@ function UploadUrlPage() {
                 disabled={isLoading}
                 className={`px-5 py-2 rounded-full border font-semibold transition ${
                   priority === p
-                    ? "bg-gradient-to-r from-green-200 to-green-300 text-green-700 border-green-500"
-                    : "bg-white text-green-500 border-gray-300 hover:border-green-500 hover:bg-green-50"
+                    ? "bg-gradient-to-r from-green-200 to-green-300 text-[#004F8C] border-green-500"
+                    : "bg-white text-[#0066B3] border-gray-300 hover:border-green-500 hover:bg-green-50"
                 } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 {p.charAt(0).toUpperCase() + p.slice(1)}
@@ -134,7 +134,7 @@ function UploadUrlPage() {
                 disabled={isLoading}
                 className={`px-4 py-2 rounded-full border font-medium transition ${
                   selectedDepartments.includes(dept)
-                    ? "bg-green-200 text-green-700 border-green-200"
+                    ? "bg-[#E8F2FB] text-[#004F8C]  border-[#D6E0EA]"
                     : "bg-white text-gray-700 border-gray-300 hover:bg-green-50 hover:border-green-500"
                 } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
@@ -168,7 +168,7 @@ function UploadUrlPage() {
           className={`px-10 py-3 rounded-lg font-semibold text-black shadow transition-all ${
             isLoading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-green-200 text-green-500 hover:bg-green-500 hover:text-white"
+              : "bg-[#E8F2FB] text-[#0066B3] hover:bg-[#004F8C] hover:text-white"
           }`}
         >
           {isLoading ? "Uploading..." : "Submit"}

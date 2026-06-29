@@ -32,13 +32,14 @@ function Sidebar() {
   return (
     <aside
       className="
-        fixed top-4 left-4
-        h-[calc(100%-2rem)] w-64
-        bg-gray-50 backdrop-blur-xl
-        rounded-2xl
-        flex flex-col
-        transition-all duration-300
-      "
+  fixed top-0 left-0
+  h-full w-64
+  bg-white
+  border-r border-gray-200
+  flex flex-col
+  transition-all duration-300
+  z-30
+"
     >
       {/* Logo */}
       <div className="flex items-center justify-center border-b border-gray-200">
@@ -56,7 +57,7 @@ function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 p-3 rounded-lg transition-colors
               hover:bg-gray-100/60
-              ${isActive ? "bg-green-100 text-green-700" : "text-gray-700"}`
+              ${isActive ? " bg-[#E8F2FB] text-[#004F8C]" : "text-gray-700"}`
             }
           >
             {link.icon}

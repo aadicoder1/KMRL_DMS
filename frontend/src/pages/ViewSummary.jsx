@@ -73,7 +73,7 @@ export default function ViewSummary() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-green-500 mb-2 sm:mb-0">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#0066B3] mb-2 sm:mb-0">
             {t("documentSummaries")}
           </h1>
 
@@ -83,7 +83,7 @@ export default function ViewSummary() {
             className="relative inline-flex items-center cursor-pointer w-20 h-10 bg-black rounded-full p-1"
           >
             <span
-              className={`absolute left-1 w-8 h-8 bg-green-500 rounded-full shadow transform transition-transform ${
+              className={`absolute left-1 w-8 h-8 bg-[#0066B3] rounded-full shadow transform transition-transform ${
                 i18n.language === "en" ? "translate-x-0" : "translate-x-10"
               }`}
             ></span>
@@ -107,7 +107,7 @@ export default function ViewSummary() {
         {/* Documents Accordion */}
         <div className="space-y-4">
           {docs.length === 0 ? (
-            <p className="text-green-300 text-center">{t("noDocuments")}</p>
+            <p className="text-[#8FA3B8]text-center">{t("noDocuments")}</p>
           ) : (
             docs.map((doc) => {
               const isOpen = openDoc === doc.id;
@@ -120,20 +120,20 @@ export default function ViewSummary() {
                     onClick={() => handleToggle(doc.id)}
                     className={`w-full flex justify-between items-center px-4 sm:px-5 py-3 sm:py-4 hover:bg-green-50 transition`}
                   >
-                    <span className="font-medium text-green-500 text-sm sm:text-base">
+                    <span className="font-medium text-[#0066B3] text-sm sm:text-base">
                       {doc.name}
                     </span>
                     {isOpen ? (
-                      <ChevronUp className="w-5 h-5 text-green-500" />
+                      <ChevronUp className="w-5 h-5 text-[#0066B3]" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-green-500" />
+                      <ChevronDown className="w-5 h-5 text-[#0066B3]" />
                     )}
                   </button>
 
                   {isOpen && (
-                    <div className="p-3 sm:p-4 bg-white/30 text-green-500 border-t border-white/20 text-sm sm:text-base">
+                    <div className="p-3 sm:p-4 bg-white/30 text-[#0066B3] border-t border-white/20 text-sm sm:text-base">
                       {loading && !summaries[doc.id] ? (
-                        <p className="text-green-400">{t("loading")}...</p>
+                        <p className="text-[#5A7184]">{t("loading")}...</p>
                       ) : (
                         <p className="whitespace-pre-line">
                           {summaries[doc.id] || t("noSummary")}
