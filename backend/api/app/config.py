@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from supabase import create_client, Client
 import cloudinary
 import cloudinary.uploader
-from passlib.context import CryptContext
 
 # Load environment variables
 load_dotenv()
@@ -25,6 +24,3 @@ cloudinary.config(
     api_key=os.getenv("CLOUDINARY_API_KEY"),
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
 )
-
-# ---- Password Hashing ----
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

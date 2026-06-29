@@ -1,9 +1,9 @@
-from api.app.config import pwd_context
+import bcrypt
 
 def hash_password(password: str) -> str:
     """Hash password for storage"""
-    return pwd_context.hash(password[:72])
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify user password"""
-    return pwd_context.verify(plain_password[:72], hashed_password)
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
